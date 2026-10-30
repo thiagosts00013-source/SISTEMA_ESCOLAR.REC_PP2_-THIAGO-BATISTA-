@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Listar estudantes | Sistema Escolar</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <main>
+
+    <h1>WATERCOLOR</h1>
+
+    <nav class="menu" aria-label="Menu principal">
+        <a href="/estudantes/create">Cadastrar-se</a>
+    </nav>
+
+    <h2 class="sr-only">Lista de estudantes</h2>
+
+    <ul>
+
+        {{#each estudantes}}
+
+        <li>
+            <span>{{nome}} - {{email}}</span>
+
+            <div class="acoes">
+
+                <a href="/estudantes/{{id}}/edit" class="btn-editar">
+                    Editar<span class="sr-only"> {{nome}}</span>
+                </a>
+
+                <form action="/estudantes/delete" method="POST">
+                    <input type="hidden" name="id" value="{{id}}">
+                    <button type="submit" class="btn-excluir">
+                        Excluir<span class="sr-only"> {{nome}}</span>
+                    </button>
+                </form>
+
+            </div>
+
+        </li>
+
+        {{/each}}
+
+    </ul>
+
+    </main>
+
+    <footer>
+        <p class="autores">Arthur Gabriel Da Silva, Jhonathan Leonardo, Thiago Batista</p>
+    </footer>
+
+</body>
+</html>
